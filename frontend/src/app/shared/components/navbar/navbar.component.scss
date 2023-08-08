@@ -1,0 +1,19 @@
+@import "/theme.scss";
+.mat-toolbar {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  // height: 8%;
+  // background: $apoyoPrimario;
+  background: transparentize($accent, .07);
+
+  // border-bottom : 1px solid;
+  // border-color: $apoyoPrimario;
+ }
+
+
+ .mat-icon-button{
+  color: white;
+  // color: $apoyoPrimario ;
+ }

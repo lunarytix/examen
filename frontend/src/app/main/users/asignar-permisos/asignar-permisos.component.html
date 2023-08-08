@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Permisos: {{usuario?.nombreCompleto}}</h1>
+
+
+<mat-dialog-content>
+
+    <mat-tab-group  mat-stretch-tabs>
+      <!-- MODULOS -->
+      <mat-tab [label]="modulo.item | titlecase" *ngFor="let modulo of dataSource;let i = index">
+        <app-mat-tree-nested [datos]="modulo.children" (itemSelecteds)="verItems($event,i)"></app-mat-tree-nested>
+      </mat-tab>
+     </mat-tab-group>
+
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayoutAlign="end">
+  <button mat-raised-button (click)="onNoClick()" >Cerrar</button>
+  <button mat-raised-button (click)="asignarPermisos()"  color="primary" >Guardar</button>
+</mat-dialog-actions>

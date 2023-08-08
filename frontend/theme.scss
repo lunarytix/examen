@@ -1,0 +1,168 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+
+
+$secundario: (
+    50 : #e7f0e3,
+    100 : #c3dab9,
+    200 : #9bc18a,
+    300 : #72a85b,
+    400 : #549638,
+    500 : #368315,
+    600 : #307b12,
+    700 : #29700f,
+    800 : #22660c,
+    900 : #165306,
+    A100 : #98ff86,
+    A200 : #6dff53,
+    A400 : #42ff20,
+    A700 : #2cff07,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$primario: (
+    50 : #f7f2e0,
+    100 : #ecdeb3,
+    200 : #dfc880,
+    300 : #d2b14d,
+    400 : #c9a126,
+    500 : #bf9000,
+    600 : #b98800,
+    700 : #b17d00,
+    800 : #a97300,
+    900 : #9b6100,
+    A100 : #ffe6c6,
+    A200 : #ffd093,
+    A400 : #ffba60,
+    A700 : #ffaf47,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$hexApoyoPrimario: (
+    50 : #ebeced,
+    100 : #ced1d2,
+    200 : #adb2b4,
+    300 : #8c9395,
+    400 : #747b7f,
+    500 : #5b6468,
+    600 : #535c60,
+    700 : #495255,
+    800 : #40484b,
+    900 : #2f363a,
+    A100 : #8fdbfb,
+    A200 : #5ecbfa,
+    A400 : #25beff,
+    A700 : #0cb6ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+/* For use in src/lib/core/theming/_palette.scss */
+$hexApoyoSecundario: (
+    50 : #eeeded,
+    100 : #d4d3d2,
+    200 : #b8b6b5,
+    300 : #9b9997,
+    400 : #858380,
+    500 : #706d6a,
+    600 : #686562,
+    700 : #5d5a57,
+    800 : #53504d,
+    900 : #413e3c,
+    A100 : #f8c5a3,
+    A200 : #f4a774,
+    A400 : #ff8636,
+    A700 : #ff771c,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+$my-app-primary:  mat-palette($primario);
+$my-app-accent:  mat-palette($secundario);
+$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+$my-app-apoyoPrimario:  mat-palette($hexApoyoPrimario);
+$my-app-apoyoSecundario:  mat-palette($hexApoyoSecundario);
+
+@include angular-material-theme($my-app-theme);
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat-color($my-app-primary);
+$accent: mat-color($my-app-accent);
+$warn: mat-color($my-app-warn);
+
+$apoyoPrimario: mat-color($my-app-apoyoPrimario);
+$apoyoSecundario: mat-color($my-app-apoyoSecundario);
+
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+  @include angular-material-theme($alternate-theme);
+}
+

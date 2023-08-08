@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>Asignar empresas a {{data.nombreCompleto}}</h1>
+
+<mat-dialog-content>
+
+  <div fxLayout="row"
+       fxLayoutGap="30"
+       fxLayout.sm="column"
+       fxLayout.xs="column">
+
+    <div fxFlex="50">
+      <div fxLayout="column">
+        <h2>Asignadas</h2>
+
+        <div
+          fxFlex="100"
+          cdkDropList
+          #todoList="cdkDropList"
+          [cdkDropListData]="asignadas"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of asignadas" cdkDrag>{{item.nombreComercial | titlecase}}</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div fxFlex="50">
+
+      <div fxLayout="column">
+
+        <h2>Sin asignar</h2>
+
+        <div
+          fxFlex="100"
+          cdkDropList
+          #doneList="cdkDropList"
+          [cdkDropListData]="porAsignar"
+          [cdkDropListConnectedTo]="[todoList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of porAsignar" cdkDrag>{{item.nombreComercial |titlecase}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="example-container">
+
+  </div> -->
+
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayoutAlign="end">
+  <button mat-raised-button (click)="dialogRef.close()">Cerrar</button>
+  <button mat-raised-button color="primary" (click)="asignarEmpresas($event)">Guardar</button>
+
+</mat-dialog-actions>

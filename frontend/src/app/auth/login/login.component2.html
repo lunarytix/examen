@@ -1,0 +1,92 @@
+<app-cargando-spinner></app-cargando-spinner>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+
+    <!-- <div fxLayoutAlign="center">
+      <img src="./../../../assets/images/logocaxtle.jpeg" alt="" style="max-width: 50%;">
+    </div> -->
+
+
+    <!-- <mat-tab-group animationDuration="1000ms" mat-stretch-tabs>
+      <mat-tab label="Ingresar">
+        <div fxLayout="column"
+             fxLayoutAlign="center"
+             style="height: 280px; width: 95%;"> 
+          <ng-container [ngTemplateOutlet]="ingresar"></ng-container>
+        </div>
+      </mat-tab>
+      <mat-tab label="Registro">
+        <div  fxLayout="column"
+              fxLayoutAlign="center"
+              style="width: 95 !important;overflow-y: hidden;">
+          <ng-container [ngTemplateOutlet]="registro"></ng-container> 
+        </div>
+      </mat-tab>
+    </mat-tab-group> -->
+    <div fxLayout="column"
+          fxLayoutAlign="center"
+          style="height: 190px; width: 95%;"> 
+      <ng-container [ngTemplateOutlet]="ingresar"></ng-container>
+      </div>
+
+
+
+    <ng-template #ingresar>
+
+      <div>
+        <form class="example-form" [formGroup]="frmLogin" autocomplete="off">
+          <mat-card-content fxLayout="column">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Correo</mat-label>
+              <input matInput placeholder="correo@mercadocaxtle.com" formControlName="correo">
+              <mat-icon matSuffix>account_circle</mat-icon>
+              <mat-error *ngIf="!isValidEmail()">{{invalidEmailMessage()}}</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="{{ hide ? 'password': 'text'}}" placeholder="******" formControlName="password">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off':'visibility'}}</mat-icon>
+              <mat-error *ngIf="!isValidPassword()">{{invalidPasswordMessage()}}</mat-error>
+
+            </mat-form-field>
+
+          </mat-card-content>
+          <!-- <button mat-stroked-button color="primary" class="btn-block" [disabled]="!isValidForm() || peticion"
+            (click)="login()">
+            Acceder
+         
+          </button> -->
+
+
+           
+        </form>
+
+
+      </div>
+
+    </ng-template>
+
+    <!-- <div fxLayout="column">
+      <p class="">ó</p>
+      <div  
+          id="googleButtonDiv" 
+          fxLayoutAlign="center center" >
+      </div>
+    </div> -->
+    
+    
+    <mat-card-actions fxLayoutAlign="center">
+
+      <a mat-fab color="primary" matTooltip="Iniciar Sesión">
+        <mat-icon style="color: white;">login</mat-icon>
+      </a>
+      
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+<!-- <script src="https://accounts.google.com/gsi/client"></script> -->

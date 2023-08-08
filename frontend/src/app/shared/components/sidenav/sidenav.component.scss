@@ -1,0 +1,105 @@
+@import "/theme.scss";
+
+.mat-nav-list a.active {
+  // background: blue;
+  color: $primary !important;
+}
+
+::ng-deep .mat-nav-list a{
+  color: #4e4a4a !important
+}
+
+
+
+::ng-deep .mat-nav-list .is-active {
+  // background-color: rgb(204, 204, 204)!important;
+  border-left     : 3px solid $apoyoPrimario;
+  // width           : calc(100% - 8px)!important;;
+  color: $apoyoPrimario !important;
+}
+
+
+
+::ng-deep .mat-expansion-panel-header {
+  padding: 0 16px !important;
+}
+
+::ng-deep .mat-nav-list .mat-icon {
+  margin-right: 10px !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important
+}
+
+::ng-deep .mat-expansion-panel-header {
+  height: 48px !important;
+}
+
+::ng-deep .mat-expansion-panel .mat-list-item {
+  padding-left: 15px !important;
+}
+
+::ng-deep .mat-list-base {
+  padding-top: 0 !important;
+}
+
+// ::ng-deep .mat-list-item-content ,
+
+
+::ng-deep mat-expansion-panel .mat-content
+{
+  color: #4e4a4a
+}
+
+
+::ng-deep .mat-nav-list .mat-list-item.is-active .mat-list-item-content {
+  padding: 0 8px !important;
+}
+
+/*
+::ng-deep .mat-expansion-panel-header:hover,
+::ng-deep .mat-expanded
+{
+  background-color: rgb(202, 196, 196) !important;
+}
+
+
+::ng-deep .mat-expansion-panel-header {
+  background-color: rgb(218, 212, 212);
+}
+::ng-deep .mat-expansion-panel-header:hover {
+  background-color: rgb(218, 212, 212);
+}
+ ::ng-deep .mat-expansion-panel-body {
+  background-color: rgb(218, 212, 212);
+}
+
+::ng-deep .mat-drawer-inner-container{
+  // overflow-x: hidden !important;
+}
+
+remove deep
+*/
+
+// Esto pinta el contendio de los expansion panel
+::ng-deep .fullSideNav .mat-expansion-panel-header:hover,
+::ng-deep .fullSideNav .mat-expanded
+{
+  // background-color: rgb(202, 196, 196) !important;
+  background-color: transparentize($apoyoSecundario,0.99);
+}
+
+::ng-deep .fullSideNav .mat-expansion-panel-header {
+  // background-color: rgb(218, 212, 212);
+  background-color: transparentize($apoyoSecundario,0.87) !important;
+}
+// ::ng-deep .fullSideNav .mat-expansion-panel-header:hover {
+//   // background-color: rgb(218, 212, 212);
+//   background-color: transparentize($apoyoSecundario,0.9);
+// }
+::ng-deep .fullSideNav .mat-expansion-panel-body {
+  // background-color: rgb(218, 212, 212) !important;
+  background-color: transparentize($apoyoSecundario,0.9);
+}
+

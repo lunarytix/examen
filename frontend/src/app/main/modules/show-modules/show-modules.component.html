@@ -1,0 +1,26 @@
+<mat-card>
+
+  <div fxLayout="row wrap"
+       fxLayout.xs="column"
+       fxLayoutAlign="center"
+       fxLayoutGap="20px">
+
+    <div
+          class="margen-arriba"
+          fxFlex.lg="27"
+          fxFlex="35"
+          fxFlex.sm="50"
+          fxFlex.xs="100"
+          *ngFor="let item of items">
+
+      <app-modules [modulo]="item"></app-modules>
+
+
+    </div>
+
+
+  </div>
+
+
+
+</mat-card>

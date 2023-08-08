@@ -1,0 +1,17 @@
+<mat-card fxFlex="100" class="mat-elevation-z8">
+  <mat-card-header>
+      <!-- <mat-card-title>Venta </mat-card-title> -->
+      <mat-card-subtitle>{{encabezado | uppercase}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <canvas style="max-height: 300px;"
+            baseChart
+            [type]="tipo"
+            [data]="barChartData"
+            [options]="pieChartOptions"
+            [legend]="pieChartLegend"
+              >
+    </canvas>
+  </mat-card-content>
+</mat-card>
+

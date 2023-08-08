@@ -1,0 +1,28 @@
+@import "/theme.scss";
+.fullSideNav{
+  // background: $apoyoSecundario;
+  //transparentize($apoyoSecundario,0.3);
+  // overflow-x: hidden;
+  // background-color: rgb(218, 212, 212);
+  background-color: transparentize($apoyoSecundario,0.9);
+
+}
+
+//  .mat-toolbar {
+
+//   background: $apoyoPrimario;
+//  }
+
+// ::ng-deep .fullSideNav , .mat-expansion-panel-header {
+//   background-color: rgb(218, 212, 212);
+// }
+// ::ng-deep .fullSideNav , .mat-expansion-panel-header:hover {
+//   background-color: rgb(218, 212, 212);
+// }
+//  ::ng-deep .fullSideNav , .mat-expansion-panel-body {
+//   background-color: rgb(218, 212, 212) !important;
+// }
+
+// ::ng-deep .fullSideNav , .mat-drawer-inner-container{
+//   // overflow-x: hidden !important;
+// }

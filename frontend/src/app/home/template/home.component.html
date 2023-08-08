@@ -1,0 +1,28 @@
+<app-cargando-spinner></app-cargando-spinner>
+
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav [mode]="mode" [opened]="opened" class="fullSideNav"
+       [ngStyle]="{'width':'20%'}"
+       [ngStyle.sm]="{'width':'80%'}"
+       [ngStyle.xs]="{'width':'80%'}">
+
+
+     <mat-divider></mat-divider>
+     <!-- Informacion Usuario -->
+     <app-avatar [idSideNav]="sidenav" ></app-avatar>
+     <mat-divider></mat-divider>
+     <!-- SideNav(menu de opciones y menus) component -->
+     <app-sidenav></app-sidenav>
+
+  </mat-sidenav>
+
+  <!-- NavBar componente -->
+  <app-navbar [idSideNav]="sidenav" [home]="home" [logout]="logout"></app-navbar>
+
+  <!-- Componente contenetedor -->
+  <div class="containter" [style]="{'border':'1px solid rgba(0,0,0,.2)','margin': '1%'}">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

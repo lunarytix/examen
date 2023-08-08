@@ -1,0 +1,33 @@
+<div class="">
+  <form [formGroup]="frmFecha">
+    <mat-form-field fxFlex="100" appearance="outline">
+      <mat-label>Fecha</mat-label>
+      <input matInput [ngxMatDatetimePicker]="picker"
+                      placeholder="Seleccionar fecha"
+                      formControlName="fecha"
+                      [min]="minDate"
+                      [max]="maxDate"
+                       >
+      <mat-datepicker-toggle matSuffix [for]="$any(picker)">
+      </mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #picker
+        [showSpinners]="showSpinners"
+        [showSeconds]="showSeconds"
+        [stepHour]="stepHour"
+        [stepMinute]="stepMinute"
+        [stepSecond]="stepSecond"
+        [enableMeridian]="true"
+        [touchUi]="false"
+        [panelClass]="'divDateTime'"
+        [color]="color"
+
+        >
+        <ng-template>
+          <span>OK</span>
+          <mat-icon>check</mat-icon>
+        </ng-template>
+      </ngx-mat-datetime-picker>
+    </mat-form-field>
+  </form>
+
+</div>

@@ -1,0 +1,38 @@
+
+<mat-nav-list style="overflow-x: hidden;">
+  <ng-container *ngFor="let menu of menus ">
+      <ng-container [ngTemplateOutlet]="menu.hijos!.length > 0  ?  childMenu : parentMenu"
+          [ngTemplateOutletContext]="{menu:menu}">
+      </ng-container>
+  </ng-container>
+</mat-nav-list>
+
+<ng-template #parentMenu let-menu="menu">
+  <a mat-list-item [routerLink]="menu.route"
+                 routerLinkActive="is-active"
+                 [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>{{menu.icono}}</mat-icon> {{menu.menu}}
+  </a>
+</ng-template>
+
+<mat-accordion multi="true">
+
+  <ng-template #childMenu let-menu="menu">
+    <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded]="isActive(menu.hijos)">
+        <mat-expansion-panel-header>
+            <mat-icon mat-list-icon>{{menu.icono}}</mat-icon>{{menu.menu}}
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a mat-list-item
+            *ngFor="let submenu of menu.hijos"
+            [routerLink]="submenu.route"
+            [routerLinkActive]="['is-active']"
+            [routerLinkActiveOptions]="{exact:true}"
+            >
+                <mat-icon>{{submenu.icono}}</mat-icon> {{submenu.menu}}
+              </a>
+        </mat-nav-list>
+    </mat-expansion-panel>
+  </ng-template>
+
+</mat-accordion>

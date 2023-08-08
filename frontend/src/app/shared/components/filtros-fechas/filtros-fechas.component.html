@@ -1,0 +1,108 @@
+<div class="mat-elevation-z10" style="margin-bottom: 1%;">
+
+  <mat-accordion multi >
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filtros
+        </mat-panel-title>
+        <mat-panel-description >
+          <div style="visibility: hidden;"></div>
+          <mat-icon>search</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+
+          <div fxLayout="row"
+              fxLayout.sm="column"
+              fxLayout.xs="column"
+              fxLayoutGap="20"
+              fxLayoutGap.sm="0"
+              fxLayoutGap.xs="0"
+              class="container"
+              >
+
+
+
+
+                  <div fxFlex="30"
+                       fxFlex.sm="100"
+                       fxFlex.xs="100"
+                       *ngIf="mostrarEmpresas"
+                       >
+                    <div>
+                      <app-select2-generico
+                                   (obtenerSelect)="obtenerSelect($event)"
+                                   tipografia="uppercase"
+                                   leyenda="Empresas"
+                                   name="empresa"
+                                   [datos]="empresas"
+                                   [valorSeleccionado]="empresaSeleccionada"
+                      ></app-select2-generico>
+                      <!-- [valorSeleccionado]="frmFechas.controls['empresa'].value" -->
+
+                    </div>
+                  </div>
+
+                  <div fxFlex="30"
+                       fxFlex.sm="100"
+                       fxFlex.xs="100"
+                       *ngIf="mostrarTiposReporte"
+                       >
+                    <div>
+                      <app-select2-generico
+                                   (obtenerSelect)="obtenerSelect($event)"
+                                   tipografia="uppercase"
+                                   leyenda="Tipos"
+                                   name="tipo"
+                                   [datos]="tiposReportes"
+                                   [valorSeleccionado]="tipoSeleccionado"
+                      ></app-select2-generico>
+                    </div>
+                  </div>
+
+                  <div fxFlex="25"
+                       fxFlex.sm="100"
+                       fxFlex.xs="100"
+                       class="calendarioRange"
+                       >
+
+                    <form [formGroup]="frmFechas">
+                      <mat-form-field style="width: 100%;" appearance="outline">
+                        <mat-label>Ingresar rango de fechas</mat-label>
+                        <mat-date-range-input [rangePicker]="picker" >
+                          <input matStartDate formControlName="inicial" placeholder="Fecha Inicial">
+                          <input matEndDate formControlName="final" placeholder="Fecha Final">
+                        </mat-date-range-input>
+
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker touchUi  #picker classList="calendarioRange"></mat-date-range-picker>
+                        </mat-form-field>
+                    </form>
+
+                  </div>
+
+                <div fxFlex="15"
+                     fxFlex.sm="100"
+                     fxFlex.xs="100"
+                     fxLayout="column"
+                      >
+                  <button mat-raised-button
+                          color="primary"
+                          (click)="aplicarFiltro()"
+                          [ngStyle]="{'margin-top': '10px','width':'90%'}"
+                          [ngStyle.sm]="{'margin-top': '0px','margin-bottom': '5%'}"
+                          [ngStyle.xs]="{'margin-top': '0px','margin-bottom': '5%'}"
+                          >
+                     Filtrar
+                  </button>
+                </div>
+
+
+          </div>
+
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

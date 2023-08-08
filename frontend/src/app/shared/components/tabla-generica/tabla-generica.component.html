@@ -1,0 +1,136 @@
+<mat-card fxFlex="100" class="mat-elevation-z8">
+  <mat-card-header>
+      <!-- <mat-card-title>Venta </mat-card-title> -->
+      <mat-card-subtitle>{{leyenda | uppercase}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container [ngTemplateOutlet]="datos && columnas ? tabla : error"></ng-container>
+  </mat-card-content>
+</mat-card>
+
+
+
+<ng-template #tabla>
+
+  <div fxLayout="row"
+       fxLayout.sm="column"
+       fxLayout.xs="column"
+       fxLayoutAlign="end"
+       *ngIf="busqueda"
+       >
+    <div fxFlex="30">
+
+      <mat-form-field appearance="fill" fxFlex="100">
+        <mat-label>Buscar</mat-label>
+        <input matInput autocomplete="off" (keyup)="applyFilter($event)" placeholder="Ingresa texto" #input>
+      </mat-form-field>
+
+    </div>
+  </div>
+
+
+  <table mat-table
+         [dataSource]="dataSource"
+         class="mat-elevation-z8"
+         matSort
+         #tableSort="matSort"
+         matSortActive="{{orden.columna}}"
+         [matSortDirection]="orden.direccion"
+      >
+
+    <ng-container matColumnDef="{{columna.nombre}}" *ngFor="let columna of columnas;">
+        <!-- <th mat-header-cell *matHeaderCellDef>{{columna?.nombre | uppercase}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[columna.nombre] || '' | dynamic: columna?.pipe}} </td> -->
+        <!-- Columnas -->
+        <ng-container [ngTemplateOutlet]="(columna.menu  || columna.estado) ?
+                      columna.menu ? tdmenu: tdestados: tdnormal"></ng-container>
+
+        <!-- columna normal -->
+        <ng-template #tdnormal>
+          <th mat-header-cell *matHeaderCellDef class="{{columna.clases}}">{{columna.leyenda || columna.nombre | uppercase}} </th>
+          <td mat-cell *matCellDef="let element" class="{{columna.clases}}"> {{element[columna.nombre] | dynamic: columna?.pipe}} </td>
+        </ng-template>
+
+        <!-- columna estados -->
+        <ng-template #tdestados>
+          <th mat-header-cell *matHeaderCellDef class="{{columna.clases}}" >{{columna.leyenda || columna.nombre | uppercase}} </th>
+          <td mat-cell *matCellDef="let element" class="{{columna.clases}}" >
+
+
+            <ng-container *ngFor="let estado of estados"  >
+              <button mat-icon-button
+                      color="{{estado.color}}"
+                      matTooltip="{{estado.texto}}"
+                      *ngIf="estado.condicion(element)">
+                <mat-icon>{{estado.icono}}</mat-icon>
+              </button>
+            </ng-container>
+
+          </td>
+        </ng-template>
+
+        <!-- columna menus -->
+        <ng-template #tdmenu>
+
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> {{columna.nombre | uppercase}} </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+
+            <button mat-icon-button [matMenuTriggerFor]="menuOpciones" >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menuOpciones xPosition="before">
+
+              <div *ngFor="let opcion of opciones">
+                 <button
+                        *ngIf="opcion.condicion(element)"
+                        mat-menu-item
+                        color="primary"
+                        (click)="opcion.funcion(element)">
+                  <mat-icon>{{opcion.icono}}</mat-icon>
+                  <span>{{opcion.texto}}</span>
+                </button>
+              </div>
+            </mat-menu>
+
+          </td>
+        </ng-template>
+        <!-- Columnas -->
+        <!-- Totalizador -->
+        <ng-container *ngIf="columnasTotalizador !== {}" >
+           <td mat-footer-cell *matFooterCellDef class="{{columna.clases}}"><b> {{ obtenerTotalPorColumna(columna.nombre)?.total |
+                                                        dynamic: obtenerTotalPorColumna(columna.nombre)?.pipe  }} </b>
+           </td>
+        </ng-container>
+        <!-- Totalizador -->
+
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- Totalizador -->
+    <ng-container *ngIf="columnasTotalizador !== {}" >
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </ng-container>
+    <!-- Totalizador -->
+
+  </table>
+
+  <mat-paginator showFirstLastButtons
+                   [pageSizeOptions]="[5,10,15,20]"
+                   [pageSize]="10"
+                   aria-label="Listado"
+                   *ngIf="paginado"></mat-paginator>
+</ng-template>
+
+<ng-template #error>
+  <div>
+    <hr>
+    Datos y columnas son requeridos!!!
+    <hr>
+    Datos: {{datos | json}}
+    <hr>
+    Columnas: {{columnas}}
+  </div>
+</ng-template>

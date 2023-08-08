@@ -1,0 +1,125 @@
+<h1 mat-dialog-title>Editar empresa</h1>
+
+
+<form [formGroup]="frmCompanys" autocomplete="off">
+  <input type="hidden" formControlName="id">
+
+  <div fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutGap="30px"
+>
+
+    <div fxFlex="100"
+        fxLayout="column">
+
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Razón social</mat-label>
+            <input matInput
+                  formControlName="razonSocial"
+                  placeholder="Razón social"
+                  type="text">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="isValidField('razonSocial')">{{getMessageError()}}</mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Nombre comercial</mat-label>
+            <input matInput
+                  formControlName="nombreComercial"
+                  placeholder="Nombre comercial"
+                  type="text">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="isValidField('nombreComercial')">{{getMessageError()}}</mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Correo</mat-label>
+            <input matInput
+                  formControlName="correo"
+                  placeholder="Correo"
+                  type="email">
+            <mat-icon matSuffix>mail</mat-icon>
+            <mat-error *ngIf="isValidField('correo')">{{getMessageError('correo')}}</mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Telefono</mat-label>
+            <input matInput
+                  formControlName="telefono"
+                  placeholder="Telefono"
+                  type="text">
+            <mat-icon matSuffix>call</mat-icon>
+          </mat-form-field>
+
+        </div>
+
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Dirección</mat-label>
+            <input matInput
+                  formControlName="direccion"
+                  placeholder="Dirección"
+                  type="text">
+            <mat-icon matSuffix>explore</mat-icon>
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Latitud</mat-label>
+            <input matInput
+                  formControlName="latitud"
+                  placeholder="Latitud"
+                  type="text">
+            <mat-icon matSuffix>pin_drop</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Longitud</mat-label>
+            <input matInput
+                  formControlName="longitud"
+                  placeholder="Longitud"
+                  type="text">
+            <mat-icon matSuffix>pin_drop</mat-icon>
+          </mat-form-field>
+
+        </div>
+
+
+
+    </div>
+
+
+  </div>
+
+  <div fxLayout="row wrap">
+    <span fxFlex></span>
+    <div mat-dialog-actions >
+      <button mat-raised-button (click)="onNoClick()" >Cerrar</button>
+      <button mat-raised-button (click)="updateCompany()" [disabled]="isValidform()" color="primary" >Guardar</button>
+    </div>
+  </div>
+
+</form>

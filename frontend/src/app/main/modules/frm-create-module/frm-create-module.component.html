@@ -1,0 +1,75 @@
+<h1 mat-dialog-title>Registro de sistemas</h1>
+
+
+<form [formGroup]="frmModules" autocomplete="off">
+  <div fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutGap="30px"
+>
+
+    <div fxFlex="100"
+        fxLayout="column">
+
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Nombre</mat-label>
+            <input matInput
+                  formControlName="nombre"
+                  placeholder="Nombre"
+                  type="text">
+            <mat-icon matSuffix>extension</mat-icon>
+            <mat-error *ngIf="isValidField('nombre')">{{getMessageError()}}</mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Descripcion</mat-label>
+            <input matInput
+                  formControlName="descripcion"
+                  placeholder="Nombre comercial"
+                  type="text">
+            <mat-icon matSuffix>comment</mat-icon>
+            <mat-error *ngIf="isValidField('descripcion')">{{getMessageError()}}</mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Url</mat-label>
+            <input matInput
+                  formControlName="url"
+                  placeholder="Url"
+                  type="text">
+            <mat-icon matSuffix>mail</mat-icon>
+            <mat-error *ngIf="isValidField('url')">{{getMessageError('url')}}</mat-error>
+
+          </mat-form-field>
+
+        </div>
+
+
+
+
+    </div>
+
+
+  </div>
+
+  <div fxLayout="row wrap">
+    <span fxFlex></span>
+    <div mat-dialog-actions >
+      <button mat-raised-button (click)="onNoClick()" >Cerrar</button>
+      <button mat-raised-button (click)="saveModule()" [disabled]="isValidform()" color="primary" >Guardar</button>
+    </div>
+  </div>
+
+</form>

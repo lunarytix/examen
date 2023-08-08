@@ -1,0 +1,19 @@
+<div fxLayout="row wrap"
+        style="padding: 5%;"
+        fxLayoutAlign="center">
+    <div fxFlex="20" style="display: flex;
+    align-items: center;">
+      <img class="img-avatar" src="/assets/images/programador.png">
+    </div>
+    <div fxFlex="80" style="display: flex;align-items: center;">
+      <h1>
+        {{usuario?.nombre | titlecase}}
+      </h1>
+
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="idSideNav?.toggle()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+
+  </div>

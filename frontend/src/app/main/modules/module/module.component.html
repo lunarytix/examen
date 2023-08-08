@@ -1,0 +1,72 @@
+<!-- <mat-card >
+
+   <mat-card-header style="background: rgb(140, 196, 89);">
+  <strong> Modulo </strong>
+  </mat-card-header>
+  <img mat-card-image
+       src="https://www.coopdisalud.com/wp-content/uploads/2020/06/Icon-BuzonSugerencias-1.png"
+       alt="Photo of a Shiba Inu"
+       style="max-height: 200px;"
+        >
+  <mat-card-content>
+    <p>
+      Modulo
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div fxLayoutAlign="end">
+      <button fxL mat-raised-button color="success" >Acceder</button>
+    </div>
+  </mat-card-actions>
+</mat-card> -->
+
+
+<!-- <mat-card class="example-card"
+          [class.mat-elevation-z10]="true">
+  <mat-card-title-group>
+    <mat-card-title>{{modulo.nombre}}</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+    <img mat-card-md-image src="../../../../assets/images/modulos/rh.png" >
+  </mat-card-title-group>
+  <mat-card-content>
+    {{modulo.descripcion}}
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="end">
+    <button mat-button color="primary" (click)="asignarModulo()" [routerLink]="modulo.url" >Acceder</button>
+  </mat-card-actions>
+</mat-card> -->
+
+
+<mat-card [class.mat-elevation-z10]="true">
+    <mat-card-header>
+        <!-- <img matCardAvatar src="../../../../assets/images/modulos/rh.png"> -->
+        <mat-card-title>{{modulo.nombre}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+
+    <div fxLayoutAlign="center">
+
+      <img  mat-card-md-image [src]="modulo.imagen | baseUrl">
+
+    </div>
+
+    <mat-card-content>
+
+      <div class="fontColor">
+
+        {{modulo.descripcion}}
+
+      </div>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="end">
+      <button mat-button
+              color="primary"
+              [disabled]="peticion"
+              (click)="peticion = !peticion"
+              [routerLink]="modulo.url" >Acceder
+              <!-- <mat-icon *ngIf="peticion"><mat-spinner diameter="20">
+              </mat-spinner></mat-icon> -->
+            </button>
+    </mat-card-actions>
+
+</mat-card>

@@ -1,0 +1,19 @@
+<mat-form-field [formGroup]="formData" class="select2" fxFlex="100" appearance="outline">
+  <mat-label>{{leyenda}}</mat-label>
+
+  <mat-select formControlName="elementoCtrl"
+              placeholder="{{leyenda}}"
+              #singleSelect
+              [ngStyle]="{'text-transform': tipografia}">
+    <mat-option >
+      <ngx-mat-select-search
+                 [formControl]="filtroElementosCtrl"
+                placeholderLabel="{{leyenda}}"
+                [noEntriesFoundLabel]="'Sin resultados'"></ngx-mat-select-search>
+    </mat-option>
+
+    <mat-option *ngFor="let admision of elementosFiltrados | async" [value]="admision" sele [ngStyle]="{'text-transform': tipografia}">
+      {{admision.nombre}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
