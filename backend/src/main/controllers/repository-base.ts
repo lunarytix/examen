@@ -1,4 +1,4 @@
-import {  ModelStatic } from "sequelize/types";
+import {  ModelStatic } from "sequelize";
 import { Request, Response } from "express";
 
 import SimpleResponse from "../objects/simple-response";

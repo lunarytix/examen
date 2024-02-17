@@ -1,0 +1,44 @@
+<mat-card>
+    <mat-card-title>
+    </mat-card-title>
+
+    <mat-card-content>
+        <div fxLayout="column">
+
+            
+
+            <div>
+                <ng-container [ngTemplateOutlet]="tabla"></ng-container>
+            </div>
+
+        </div>
+
+        <ng-template #tabla>
+            <div fxFlex="100">
+                <app-tabla-generica [datos]="DTEntrada" [columnas]="columnas" [paginado]="true"
+                    [orden]="{direccion: 'asc',columna:'nombre'}" [busqueda]="true"
+                    [columnasTotalizador]="{}" leyenda="Prospectos" [opciones]="opcionesTabla" [estados]="estadosTabla">
+                </app-tabla-generica>
+            </div>
+        </ng-template>
+
+    </mat-card-content>
+
+</mat-card>
+
+<ng-template #filtroTemplate>
+
+    <!-- <app-filtros-fechas (valorSelect)="consultarRecepciones($event)" (consultarDatos)="aplicarFiltro($event)"
+        [mostrarEmpresas]="false" [mostrarTiposReporte]="false" [mostrarEmpresas]="true" [empresas]="empresas"
+        [mostrarTiposReporte]="true" [tiposReportes]="recepciones" [leyendaVariable]="'Recepción'"
+        [mostrarFecha]="false"></app-filtros-fechas> -->
+
+</ng-template>
+
+<div class="btn-crear" *ngIf="tieneAcceso('CREAR')">
+    <!-- *ngIf="tieneAcceso('CREAR')" (click)="crearConsultorio()" -->
+    <button color="primary" mat-fab (click)="crearComponente()" >
+        <mat-icon>add</mat-icon>
+    </button>
+
+</div>

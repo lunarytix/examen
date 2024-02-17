@@ -29,10 +29,10 @@
 
                        
                         <div fxLayoutAlign="center center" *ngIf="movil">
-                            <img src="/assets/images/logocaxtle.jpeg" style="width: 38%;padding: 5%;" alt="">
+                            <!-- <img src="/assets/images/logocaxtle.jpeg" style="width: 38%;padding: 5%;" alt=""> -->
                         </div>
 
-                        <h1 class="titulo" *ngIf="!movil">Mercado Caxtle</h1>
+                        <h1 class="titulo" *ngIf="!movil">Examen</h1>
                     </div>
                  <mat-card-content>
 
@@ -65,7 +65,7 @@
 
             <mat-form-field appearance="outline">
               <mat-label>Correo</mat-label>
-              <input matInput placeholder="correo@mercadocaxtle.com" formControlName="correo">
+              <input matInput placeholder="correo@examen.com" formControlName="correo">
               <mat-icon matSuffix>account_circle</mat-icon>
               <mat-error *ngIf="!isValidEmail()">{{invalidEmailMessage()}}</mat-error>
             </mat-form-field>

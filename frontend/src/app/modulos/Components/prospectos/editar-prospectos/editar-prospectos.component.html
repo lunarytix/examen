@@ -1,0 +1,166 @@
+<h1 mat-dialog-title>Editar Prospectos</h1>
+
+<mat-dialog-content>
+    <form [formGroup]="formulario" autocomplete="off">
+
+       
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+            fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Nombre</mat-label>
+                    <input type="text" matInput formControlName="nombre">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('nombre')">{{getMessageError('nombre')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+            fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Apellido Paterno</mat-label>
+                    <input type="text" matInput formControlName="apellidoP">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('nombre')">{{getMessageError('nombre')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+            fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Apellido Materno</mat-label>
+                    <input type="text" matInput formControlName="apellidoM">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('apellidoM')">{{getMessageError('apellidoM')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+            fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>calle</mat-label>
+                    <input type="text" matInput formControlName="calle">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('calle')">{{getMessageError('calle')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+        fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Colonia</mat-label>
+                    <input type="text" matInput formControlName="colonia">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('colonia')">{{getMessageError('colonia')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+        fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Numero #</mat-label>
+                    <input type="text" matInput formControlName="numero">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('numero')">{{getMessageError('numero')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+        fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Codigo Postal</mat-label>
+                    <input type="text" matInput formControlName="codigoPostal">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('codigoPostal')">{{getMessageError('codigoPostal')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column"
+        fxLayoutGap.md="0" fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+
+            <div fxFlex="100">
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Telefono</mat-label>
+                    <input type="text" matInput formControlName="telefono">
+                    <mat-icon matSuffix>build</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('telefono')">{{getMessageError('telefono')}}</mat-error> -->
+
+                </mat-form-field>
+
+            </div>
+        </div>
+
+
+
+        <div fxLayout="row" fxLayoutGap="30" fxLayout.sm="column" fxLayout.xs="column" fxLayout.md="column" fxLayoutGap.md="0"
+            fxLayoutGap.sm="0" fxLayoutGap.xs="0">
+        
+            <div fxFlex="100">
+        
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>RFC</mat-label>
+                    <input type="text" matInput formControlName="rfc">
+                    <mat-icon matSuffix>code</mat-icon>
+                    <!-- <mat-error *ngIf="isValidField('rfc')">{{getMessageError('rfc')}}</mat-error> -->
+        
+                </mat-form-field>
+        
+            </div>
+        </div>
+
+        
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayoutAlign="end">
+    <button mat-raised-button (click)="onNoClick()">Cerrar</button>
+    <button mat-raised-button color="primary"  
+        (click)="editarComponente()"
+        [disabled]="!formulario.valid">Guardar</button>
+</mat-dialog-actions>

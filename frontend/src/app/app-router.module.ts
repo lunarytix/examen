@@ -20,7 +20,10 @@ const routes: Routes = [
     path: 'precios',
     loadChildren: () => import('./precios/precios.module').then(m => m.PreciosModule)
   },
-  
+  {
+    path: 'prospectos',
+    loadChildren: () => import('./modulos/Components/prospectos/prospectos.module').then(m => m.ProspectosModule)
+  },
   {
     path: 'notfound',
     component: PageErrorComponent

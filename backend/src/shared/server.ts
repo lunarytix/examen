@@ -4,6 +4,7 @@ import db from '../databases/config';
 import { routesAuths,routesCompanys,routesUsers ,routesModules, 
          routesMenus, routesMenuOpciones, routesRoles, routesOpciones, routesRolesOpciones, routesAreas, routesChecadores, routesNavegadores, routesUsuariosNavegadores} from "../main/routes/index.routes";
 
+import { routerProspectos } from "../main/modulos/routes/index.routes";
 class Server {
 
     private app: Application;
@@ -24,31 +25,34 @@ class Server {
         areas: '/api/areas',
         checadores: '/api/checadores'
     };
-
-    private apiPathRH = {
-        buzon: '/api/recursoshumanos/buzon',
-        tiposincidencias: '/api/recursoshumanos/tiposincidencias',
-        comentariosReportes: '/api/recursoshumanos/buzon/comentarios',
-        estadosReportes: '/api/recursoshumanos/estadosreportes',
-        tiposReportes: '/api/recursoshumanos/tiposreportes'
+    private apiPathProspectos = {
+        prospectos: '/api/prospectos',
+        
     }
+    // private apiPathRH = {
+    //     buzon: '/api/recursoshumanos/buzon',
+    //     tiposincidencias: '/api/recursoshumanos/tiposincidencias',
+    //     comentariosReportes: '/api/recursoshumanos/buzon/comentarios',
+    //     estadosReportes: '/api/recursoshumanos/estadosreportes',
+    //     tiposReportes: '/api/recursoshumanos/tiposreportes'
+    // }
 
-    private aptPathSCT = {
-        dictamenes: '/api/sct/dictamenes',
-        citas: '/api/sct/citas/',
-        admisiones: '/api/sct/admisiones/',
-        admisionesExcluir: '/api/sct/admisionesExcluir',
-        paquetes: '/api/sct/paquetes'
-    }
+    // private aptPathSCT = {
+    //     dictamenes: '/api/sct/dictamenes',
+    //     citas: '/api/sct/citas/',
+    //     admisiones: '/api/sct/admisiones/',
+    //     admisionesExcluir: '/api/sct/admisionesExcluir',
+    //     paquetes: '/api/sct/paquetes'
+    // }
 
-    private apiPathTableros = {
-        general: '/api/tableros/general',
-        comercial: '/api/tableros/comercial',
-        finanzas: '/api/tableros/finanzas',
-        operacion: '/api/tableros/operacion',
-        reportes: '/api/tableros/reportes'
+    // private apiPathTableros = {
+    //     general: '/api/tableros/general',
+    //     comercial: '/api/tableros/comercial',
+    //     finanzas: '/api/tableros/finanzas',
+    //     operacion: '/api/tableros/operacion',
+    //     reportes: '/api/tableros/reportes'
 
-    }
+    // }
 
     constructor() {
 
@@ -92,6 +96,10 @@ class Server {
         this.app.use(this.apiPath.checadores ,routesChecadores);
         this.app.use(this.apiPath.navegadores ,routesNavegadores);
         this.app.use(this.apiPath.usuariosNavegadores ,routesUsuariosNavegadores);
+
+        //examen Prospectos
+        this.app.use(this.apiPathProspectos.prospectos , routerProspectos)
+    
 
     }
 

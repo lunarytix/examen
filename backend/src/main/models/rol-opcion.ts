@@ -53,7 +53,7 @@ RolOpcion.belongsTo(Opcion,{
 
 
 RolOpcion.sync({
-    alter: (process.env.ALTER === "TRUE"), 
+    alter: true, //(process.env.ALTER === "TRUE"), 
     force: false
 });
 

@@ -1,0 +1,19 @@
+.btn-crear {
+    display: block;
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    line-height: 80px;
+    text-align: center;
+    z-index: 999;
+    
+}
+
+::ng-deep .btn-crear span{
+    color: #fff;
+}
+
+

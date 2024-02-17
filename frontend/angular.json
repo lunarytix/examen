@@ -1,9 +1,12 @@
 {
-	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "65a0b6c5-745c-4a16-8c28-d149807d45ba"
+  },
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"petromaximoFront": {
+		"examenFront": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:application": {
@@ -21,7 +24,7 @@
 					"builder": "@angular-devkit/build-angular:browser",
 					"options": {
             "allowedCommonJsDependencies": ["pdfmake"],
-						"outputPath": "dist/petromaximoFront",
+						"outputPath": "dist/examenFront",
 						"index": "src/index.html",
 						"main": "src/main.ts",
 						"polyfills": "src/polyfills.ts",
@@ -76,10 +79,10 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "petromaximoFront:build:production"
+							"browserTarget": "examenFront:build:production"
 						},
 						"development": {
-							"browserTarget": "petromaximoFront:build:development"
+							"browserTarget": "examenFront:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
@@ -87,7 +90,7 @@
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "petromaximoFront:build"
+						"browserTarget": "examenFront:build"
 					}
 				},
 				"test": {
@@ -112,5 +115,5 @@
 			}
 		}
 	},
-	"defaultProject": "petromaximoFront"
+	"defaultProject": "examenFront"
 }
